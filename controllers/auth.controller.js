@@ -60,8 +60,8 @@ const login = async (req, res) => {
 
     // Store this token in cookies
     res.cookie("TOKEN", token, {
-      httpOnly: true,
-      secure: false,
+      httpOnly: false,
+      secure: true,
       // "secure: false" It will not work for http. When we host this backend then only make it true otherwise leave it false.
 
       maxAge: 60 * 60 * 1000, // 1 hour
