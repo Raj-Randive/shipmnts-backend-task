@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "eff6ebe0-74a4-4fa4-9e22-8ba52f2e88f6",
+		"name": "shipmnts-task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26850434"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"Raj\",\r\n    \"email\": \"raj@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"email_address\": \"test2@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "email",
+			"item": [
+				{
+					"name": "schedule-email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"recipient\": \"recipient@example.com\", \r\n    \"subject\": \"Test Email\", \r\n    \"body\": \"This is a test email.\", \r\n    \"scheduleTime\": \"2024-08-03T14:00:00.000Z\", \r\n    \"recurrence\": \"none\", \r\n    \"recurrenceDetails\": {}, \r\n    \"attachments\": [] \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/api/emails/schedule-email",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"emails",
+								"schedule-email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "scheduled-emails",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/api/emails/scheduled-emails",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"emails",
+								"scheduled-emails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-by-id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/api/emails/scheduled-emails/66aca7f2a796f4880a16f6b2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"emails",
+								"scheduled-emails",
+								"66aca7f2a796f4880a16f6b2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recurrence",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"recipient\": \"recipient@example.com\", \r\n    \"subject\": \"Test Email\", \r\n    \"body\": \"This is a test email.\", \r\n    \"scheduleTime\": \"2024-08-03T14:00:00.000Z\", \r\n    \"recurrence\": \"daily\", \r\n    \"recurrenceDetails\": {}, \r\n    \"attachments\": [] \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/api/emails/schedule-email",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"emails",
+								"schedule-email"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
