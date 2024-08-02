@@ -114,3 +114,50 @@ export async function scheduleEmail(req, res) {
     res.status(500).send("Server Error");
   }
 }
+
+// *********************************************************************************************************
+// Get All the Scheduled Emails that are in the database
+export async function getEmails(req, res) {
+  try {
+    const emails = await Email.find();
+    res.json(emails);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server Error");
+  }
+}
+
+// *********************************************************************************************************
+// Get Single Scheduled Email by passing the id of the email
+export async function getEmail(req, res) {
+  try {
+    const email = await Email.findById(req.params.id);
+    if (!email) return res.status(404).json({ msg: "Email not found" });
+    res.json(email);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server Error");
+  }
+}
+
+// *********************************************************************************************************
+// Cancel the Scheduled Emails
+export async function cancelEmail(req, res) {
+  try {
+    const email = await Email.findById(req.params.id);
+    if (!email) return res.status(404).json({ msg: "Email not found" });
+
+    await Email.deleteOne({ _id: req.params.id });
+
+    // Cancel the scheduled job if it exists
+    const job = scheduledJobs[req.params.id];
+    if (job) {
+      job.cancel();
+    }
+
+    res.json({ msg: "Email canceled" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server Error");
+  }
+}
