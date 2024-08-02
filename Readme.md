@@ -1,28 +1,21 @@
-# Project Name
+# Automated Email Scheduling APP
 
-[Hosted link](https://stackoverflow-by-vipul.onrender.com)
+[Hosted link](https://shipmnts-backend-automated-email.onrender.com/)
 
 ## List of APIs created:
 
 - Create User
-  - A user can register himself on the system
-  - A user can login on the system
-- Create Questions
-  - User can add a Questions
-- Update Questions
-  - User can update his Questions
-- Delete Questions
-  - User can delete his Questions
-- All Questions
-  - List of the all questions with:
-    - search query,
-    - sort based on question text,
-    - filter based on tags
-- Comments:
-  - Commenting system for questions and answers.
-  - User can add answers by Commenting
-- Votes
-  - a user can vote (upvotes/downvotes) for questions and answers (comments).
+
+  - A user can register himself on the system.
+  - A user can login on the system (With JWT Tokens Stored in the Cookies).
+  - A user can logout on the system.
+
+- Schedule Emails
+  - User can schedule emails using date and time (UTC).
+    - A user can send Recipient's email address, Subject of the email, Body of the email and Attachments along with the emails.
+  - User can get all the upcoming schedule emails.
+  - User can get specific scheduled email by the Id stored in the database.
+  - User can cancel scheduled emails.
 
 ## Pre-requisites
 
@@ -33,7 +26,7 @@
 - Clone the repository
 
 ```
-git clone  <git hub url> <project_name>
+git clone https://github.com/Raj-Randive/shipmnts-backend-task.git
 ```
 
 - Install dependencies
@@ -64,7 +57,7 @@ This project uses the following environment variables:
 npm run dev
 ```
 
-#### Navigate to `http://localhost:4000`
+#### Navigate to `http://localhost:<your specified port>`
 
 ## Project Structure
 
@@ -87,11 +80,17 @@ The folder structure of this app is explained below:
 
 ### Specification
 
-This app containes the following API endpoints.
+This app contains the following API endpoints.
 
-```
-- message
-- message
-- message
-- message
-```
+### User Endpoints
+
+`POST` /api/auth/register/ <br/>
+`POST` /api/auth/login/ <br/>
+`POST` /api/auth/logout/ <br/>
+
+### Schedule Email Endpoints
+
+`POST` /api/emails/schedule-email <br/>
+`GET` /api/emails/scheduled-emails <br/>
+`GET` /api/emails/scheduled-emails/{id} <br/>
+`DELETE` /api/emails/scheduled-emails/{id} <br/>
