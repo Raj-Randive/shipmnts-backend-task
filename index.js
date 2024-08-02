@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import express from "express";
 import dbConnect from "./config/db.js";
 import AuthRoutes from "./routes/auth.routes.js";
+import emailRoutes from "./routes/email.routes.js";
 
 dotenv.config();
 const PORT = process.env.PORT || 4000;
@@ -21,6 +22,7 @@ dbConnect();
 
 // Routes
 app.use("/api/auth", AuthRoutes);
+app.use("/api/emails", emailRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello, World!");
