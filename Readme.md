@@ -1,6 +1,7 @@
 # Automated Email Scheduling APP
 
-[Hosted link](https://shipmnts-backend-automated-email.onrender.com/)
+[Hosted link](https://shipmnts-backend-automated-email.onrender.com/) <br/>
+[API Documentation](https://documenter.getpostman.com/view/26850434/2sA3rwLYuS) - Click here to see how to test the APIs <br/>
 
 ## List of APIs created:
 
